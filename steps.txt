@@ -1,0 +1,53 @@
+1. Winscp & putty install. 
+2. Sigup to AWS.
+3. Activate your account. 
+
+4. Launch instance >> 7 step instance creation 
+	7.1 >> AMI choose >>Ubuntu 
+	7.2 >> t2.micro instance 
+	7.3 >> Keep Default Values
+	7.4 >> Add Storage 
+	7.5 >> Add Tags
+	7.6 >> Coonfigure security Group to all traffic
+	7.7 >> Review
+5. Download private key & Save on secure location we need this later
+6. Click on connect 
+	6.1 >> Go to SSH client section & Copy  Public DNS:
+
+7. Open Winscp
+	7.1 Host Name section Paste Public DNS, Keep Port number 22 
+	7.2 User Name >> Go back to your browser & Click on EC2 instance connect 
+	7.3 Type User name 
+	7.5 Click on Advanced >> SSH >> Authentication 
+	7.6 Private Key File >> Click on Path (It will open new window)
+	7.7 Locate your folder where you have saved your key which you have downleded in step no.5
+	7.8 Click to "Select All Private Key" from file extension type 
+	7.9 Select your key with ".pem" extension file 
+	7.10 Click Open >> New window will ask to convert Open SSH private key to putty format 
+	7.11 Click Ok >> new window open for saving converted file >> save on secure location
+	7.12 Click on save >> New window will open to inform successful key conversion.
+	7.13 Click Ok 
+	7.14 Now you will able to see private key path in Private key file section 
+	7.15 Click Ok
+	7.16 Click On Login 
+	7.17 For the first time it will ask you for permission, click on yes 
+	7.18 You Have successfully configured Winscp 
+8. Locate your project on left section 
+9. Select all your project file & Upload to EC2 instance server
+10. Open PuTTY >> 	1. Click on Title bar on Winscp >> Advantages you need not to configure for login 
+					2. Open PuTTY from your system >> Need to configure
+						2.1 Paste SSH Client Public DNS in Host Name Section & Keep Port 22
+						2.2 Click on SSH >> Auth >> Click on Browse
+						2.3 Locate your PuTTY converted file ‘.ppk’ extension file & Open  
+						2.4 PuTTy Window click on Open & New terminal shall open
+						2.5 Type user name >> Get from EC2 Instance connect section
+						2.6 You are successfully connected to EC2 instance.
+11. Check for python using command python3 --version 	
+	11.1 if python3 is not available on EC2 instance run Commmand "sudo apt install python3"
+12. Update EC2 instance >> sudo apt-get update 
+13. Install PIP  >> sudo apt-get install python3-pip
+14. Install Dependancies >> pip install -r requirement.txt
+15. RUN your app >> python3 app.py
+
+16. Check your ML app on Public DNS with your port number 8080  [e.g ec2-13-234-122-242.ap-south-1.compute.amazonaws.com:8080]
+
